@@ -375,29 +375,51 @@ footer{
     </div>
 
     <!-- CUSTOMIZATION -->
+<div class="custom">
 
-    <div class="custom">
+    <h2>Cotizador Inteligente</h2>
 
-        <h2>Customización Inteligente</h2>
+    <p>
+        Bienvenido a NeoFigure CR. Pronto podrás subir imágenes o modelos 3D
+        para solicitar una cotización personalizada.
+    </p>
 
-        <p>
-            En NeoFigure CR puedes escribir exactamente cómo deseas tu figura.
-            Nuestro equipo utiliza el texto enviado por el cliente para crear
-            una figura totalmente personalizada: colores, poses, ropa, armas,
-            expresiones faciales, accesorios y estilos anime únicos.
-            Mientras más detallada sea tu descripción, más personalizada será
-            tu figura exclusiva.
-        </p>
+    <div id="chat-window">
 
-        <textarea placeholder="Ejemplo:
-Quiero una figura estilo samurai cyberpunk con espada morada, ojos azules brillantes y armadura negra futurista..."></textarea>
-
-        <br>
-
-        <button>Enviar Diseño Personalizado</button>
+        <div class="bot-message">
+            🤖 Hola, soy el asistente de cotización.
+            Adjunta una imagen o modelo 3D para comenzar.
+        </div>
 
     </div>
 
+    <br>
+
+    <input type="file" id="fileInput">
+
+    <br><br>
+
+    <input
+        type="text"
+        id="userInput"
+        placeholder="Escribe tu respuesta..."
+        style="
+            width:100%;
+            max-width:700px;
+            padding:15px;
+            border:none;
+            border-radius:12px;
+        "
+    >
+
+    <br>
+
+    <button>
+        Enviar
+    </button>
+
+</div>
+    
     <!-- LOCATION -->
 
     <div class="location">

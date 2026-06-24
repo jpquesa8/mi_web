@@ -382,7 +382,22 @@ footer{
         Bienvenido a NeoFigure CR. Pronto podrás subir imágenes o modelos 3D
         para solicitar una cotización personalizada.
     </p>
+<!-- SUBIDA DE IMAGEN -->
+<h3 style="margin-top:25px; margin-bottom:10px; color:#f9a8d4;">
+    Subir imagen de referencia
+</h3>
 
+<input type="file" id="fileInput" accept="image/*"
+    style="margin-bottom:15px; color:white;">
+
+<div id="imagePreviewContainer"
+     style="display:none; margin-top:15px; text-align:center;">
+
+    <p style="margin-bottom:10px;">Vista previa:</p>
+
+    <img id="imagePreview"
+         style="max-width:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.2);">
+</div>
    <div style="max-width:700px; margin:auto; text-align:left; margin-top:30px;">
 
     <!-- TAMAÑO -->
@@ -431,13 +446,7 @@ footer{
     ">
         Generar Cotización
     </button>
-
-</div>
-        Enviar
-    </button>
-
-</div>
-    
+       
     <!-- LOCATION -->
 
     <div class="location">

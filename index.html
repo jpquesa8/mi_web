@@ -456,9 +456,28 @@ footer{
     © 2026 NeoFigure CR — Figuras coleccionables y personalizadas en Costa Rica.
 
 </footer>
+<script>
+    const fileInput = document.getElementById("fileInput");
+    const imagePreview = document.getElementById("imagePreview");
+    const imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
-</body>
-    <script>
-    ...
+    fileInput.addEventListener("change", function(event) {
+        const archivo = event.target.files[0];
+
+        if (!archivo) {
+            imagePreviewContainer.style.display = "none";
+            return;
+        }
+
+        const lector = new FileReader();
+
+        lector.onload = function(e) {
+            imagePreview.src = e.target.result;
+            imagePreviewContainer.style.display = "block";
+        };
+
+        lector.readAsDataURL(archivo);
+    });
 </script>
+</body>
 </html>

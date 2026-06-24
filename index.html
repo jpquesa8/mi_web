@@ -384,53 +384,56 @@ footer{
         para solicitar una cotización personalizada.
     </p>
 
-    <div id="chat-window">
+   <div style="max-width:700px; margin:auto; text-align:left; margin-top:30px;">
 
-        <div class="bot-message">
-            🤖 Hola, soy el asistente de cotización.
-            Adjunta una imagen o modelo 3D para comenzar.
-        </div>
-
+    <!-- TAMAÑO -->
+    <h3 style="margin-bottom:10px; color:#f9a8d4;">Tamaño</h3>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+        <label><input type="radio" name="size" value="10"> 10 cm</label>
+        <label><input type="radio" name="size" value="15"> 15 cm</label>
+        <label><input type="radio" name="size" value="20"> 20 cm</label>
     </div>
 
-    <br>
+    <!-- CALIDAD -->
+    <h3 style="margin-bottom:10px; color:#f9a8d4;">Calidad</h3>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+        <label><input type="radio" name="quality" value="basico"> Básico</label>
+        <label><input type="radio" name="quality" value="detallado"> Detallado</label>
+        <label><input type="radio" name="quality" value="premium"> Premium</label>
+    </div>
 
-    <input type="file" id="fileInput" accept="image/*">
+    <!-- COLOR -->
+    <h3 style="margin-bottom:10px; color:#f9a8d4;">Color</h3>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+        <label><input type="radio" name="color" value="bn"> Blanco y negro</label>
+        <label><input type="radio" name="color" value="color"> A color</label>
+    </div>
 
-<div id="imagePreviewContainer" style="display:none; margin-top:25px;">
-    <img 
-        id="imagePreview" 
-        alt="Vista previa de la imagen seleccionada"
-        style="
-            width:100%;
-            max-width:400px;
-            max-height:400px;
-            object-fit:contain;
-            border-radius:15px;
-            border:2px solid #c084fc;
-            background:#0f172a;
-            padding:10px;
-        "
-    >
+    <!-- CANTIDAD -->
+    <h3 style="margin-bottom:10px; color:#f9a8d4;">Cantidad</h3>
+    <input type="number" value="1" min="1"
+        style="width:120px; padding:10px; border-radius:10px; border:none; margin-bottom:20px;">
+
+    <!-- COMENTARIOS -->
+    <h3 style="margin-bottom:10px; color:#f9a8d4;">Comentarios (opcional)</h3>
+    <textarea style="width:100%; max-width:100%; height:100px; border-radius:12px; padding:10px;"></textarea>
+
+    <!-- BOTÓN -->
+    <button style="
+        margin-top:20px;
+        width:100%;
+        padding:15px;
+        border:none;
+        border-radius:12px;
+        background:linear-gradient(45deg,#9333ea,#ec4899);
+        color:white;
+        font-size:18px;
+        cursor:pointer;
+    ">
+        Generar Cotización
+    </button>
+
 </div>
-
-    <br><br>
-
-    <input
-       
-        placeholder="Escribe tu respuesta..."
-        style="
-            width:100%;
-            max-width:700px;
-            padding:15px;
-            border:none;
-            border-radius:12px;
-        "
-    >
-
-    <br>
-
-    <button onclick="enviarMensaje()">
         Enviar
     </button>
 

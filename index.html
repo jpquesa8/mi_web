@@ -378,29 +378,6 @@ footer{
 <div class="custom">
 
     <h2>Cotizador Inteligente</h2>
-<script>
-const fileInput = document.getElementById("fileInput");
-const imagePreview = document.getElementById("imagePreview");
-const imagePreviewContainer = document.getElementById("imagePreviewContainer");
-
-fileInput.addEventListener("change", function(event) {
-    const archivo = event.target.files[0];
-
-    if (!archivo) {
-        imagePreviewContainer.style.display = "none";
-        return;
-    }
-
-    const lector = new FileReader();
-
-    lector.onload = function(e) {
-        imagePreview.src = e.target.result;
-        imagePreviewContainer.style.display = "block";
-    };
-
-    lector.readAsDataURL(archivo);
-});
-</script>
     <p>
         Bienvenido a NeoFigure CR. Pronto podrás subir imágenes o modelos 3D
         para solicitar una cotización personalizada.

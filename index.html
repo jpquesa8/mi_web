@@ -398,8 +398,7 @@ footer{
     <img id="imagePreview"
          style="max-width:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.2);">
 </div>
-   <div style="max-width:700px; margin:auto; text-align:left; margin-top:30px;">
-
+<div id="quoteForm" style="display:none; max-width:700px; margin:auto; text-align:left; margin-top:30px;">
     <!-- TAMAÑO -->
     <h3 style="margin-bottom:10px; color:#f9a8d4;">Tamaño</h3>
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
@@ -472,7 +471,7 @@ footer{
     const fileInput = document.getElementById("fileInput");
     const imagePreview = document.getElementById("imagePreview");
     const imagePreviewContainer = document.getElementById("imagePreviewContainer");
-
+const quoteForm = document.getElementById("quoteForm");
     fileInput.addEventListener("change", function(event) {
         const archivo = event.target.files[0];
 
@@ -486,6 +485,7 @@ footer{
         lector.onload = function(e) {
             imagePreview.src = e.target.result;
             imagePreviewContainer.style.display = "block";
+            quoteForm.style.display = "block";
         };
 
         lector.readAsDataURL(archivo);

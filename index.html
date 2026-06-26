@@ -503,6 +503,16 @@ if (!archivo) {
 
         lector.readAsDataURL(archivo);
     });
+    clearImageBtn.addEventListener("click", function() {
+
+    fileInput.value = "";
+
+    imagePreview.src = "";
+
+    imagePreviewContainer.style.display = "none";
+
+    quoteForm.style.display = "none";
+});
 </script>
 </body>
 </html>

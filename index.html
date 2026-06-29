@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -445,7 +446,7 @@ footer{
     <textarea style="width:100%; max-width:100%; height:100px; border-radius:12px; padding:10px;"></textarea>
 
     <!-- BOTÓN -->
-    <button style="
+    <button id="btnCotizar" style="
         margin-top:20px;
         width:100%;
         padding:15px;
@@ -481,6 +482,27 @@ footer{
 
 </footer>
 <script>
+    const baseMaterial = {
+    pla: 0.12,
+    petg: 0.18,
+    resin: 0.30
+        };
+    const factoresCalidad = {
+    basico: 1.0,
+    detallado: 1.4,
+    premium: 1.8
+};
+
+const factoresTamano = {
+    10: 1.0,
+    15: 1.5,
+    20: 2.0
+};
+
+const factorColor = {
+    bn: 1.0,
+    color: 1.25
+};
     const fileInput = document.getElementById("fileInput");
     const imagePreview = document.getElementById("imagePreview");
     const imagePreviewContainer = document.getElementById("imagePreviewContainer");
@@ -503,6 +525,38 @@ if (!archivo) {
 
         lector.readAsDataURL(archivo);
     });
+    const btnCotizar = document.getElementById("btnCotizar");
+btnCotizar.addEventListener("click", function () {
+
+    const size = document.querySelector('input[name="size"]:checked');
+    const quality = document.querySelector('input[name="quality"]:checked');
+    const color = document.querySelector('input[name="color"]:checked');
+    const cantidad = document.querySelector('input[type="number"]').value;
+
+    if (!size || !quality || !color) {
+        alert("Completa todos los campos");
+        return;
+    }
+
+    const material = baseMaterial.pla;
+
+    const fTamano = factoresTamano[size.value];
+    const fCalidad = factoresCalidad[quality.value];
+    const fColor = factorColor[color.value];
+
+    const gramosBase = 50;
+    const gramosFinal = gramosBase * fTamano;
+
+    const subtotal =
+        (gramosFinal * material) *
+        fCalidad *
+        fColor *
+        cantidad;
+
+    const total = subtotal * 1.4;
+
+    alert("Precio estimado: $" + total.toFixed(2));
+});
     clearImageBtn.addEventListener("click", function() {
 
     fileInput.value = "";

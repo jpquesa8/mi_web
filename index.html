@@ -527,7 +527,17 @@ if (!archivo) {
     });
     const btnCotizar = document.getElementById("btnCotizar");
 btnCotizar.addEventListener("click", function () {
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+    doc.setFontSize(22);
+doc.text("NeoFigure CR", 20, 20);
 
+doc.setFontSize(14);
+doc.text("Cotización de Impresión 3D", 20, 30);
+    doc.setFontSize(12);
+doc.text("Precio estimado:", 20, 50);
+
+doc.setFontSize(18);
     const size = document.querySelector('input[name="size"]:checked');
     const quality = document.querySelector('input[name="quality"]:checked');
     const color = document.querySelector('input[name="color"]:checked');
@@ -554,7 +564,8 @@ btnCotizar.addEventListener("click", function () {
         cantidad;
 
     const total = subtotal * 1.4;
-
+doc.text("$" + total.toFixed(2), 20, 60);
+     window.open(doc.output("bloburl"), "_blank");
     alert("Precio estimado: $" + total.toFixed(2));
 });
     clearImageBtn.addEventListener("click", function() {

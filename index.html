@@ -528,34 +528,16 @@ if (!archivo) {
     });
     const btnCotizar = document.getElementById("btnCotizar");
 btnCotizar.addEventListener("click", function () {
-const jsPDF = window.jspdf.jsPDF;
-const doc = new jsPDF();
-    doc.setFontSize(22);
-doc.text("NeoFigure CR", 20, 20);
-
-doc.setFontSize(14);
-doc.text("Cotización de Impresión 3D", 20, 30);
-   doc.setFontSize(12);
-
-doc.text("Tamaño: " + size.value + " cm", 20, 50);
-doc.text("Calidad: " + quality.value, 20, 60);
-doc.text("Color: " + color.value, 20, 70);
-doc.text("Cantidad: " + cantidad, 20, 80); 
-    doc.setFontSize(12);
-doc.text("Precio estimado:", 20, 50);
-
-doc.setFontSize(18);
-    const size = document.querySelector('input[name="size"]:checked');
+    
+     const size = document.querySelector('input[name="size"]:checked');
     const quality = document.querySelector('input[name="quality"]:checked');
     const color = document.querySelector('input[name="color"]:checked');
     const cantidad = document.querySelector('input[type="number"]').value;
-
-    if (!size || !quality || !color) {
+     if (!size || !quality || !color) {
         alert("Completa todos los campos");
         return;
     }
-
-    const material = baseMaterial.pla;
+      const material = baseMaterial.pla;
 
     const fTamano = factoresTamano[size.value];
     const fCalidad = factoresCalidad[quality.value];
@@ -571,10 +553,31 @@ doc.setFontSize(18);
         cantidad;
 
     const total = subtotal * 1.4;
-doc.text("$" + total.toFixed(2), 20, 60);
-     window.open(doc.output("bloburl"), "_blank");
-    alert("Precio estimado: $" + total.toFixed(2));
+    const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+    doc.setFontSize(14);
+doc.text("Cotización de Impresión 3D", 20, 30);
+
+doc.setFontSize(12);
+doc.text("Tamaño: " + size.value + " cm", 20, 50);
+doc.text("Calidad: " + quality.value, 20, 60);
+doc.text("Color: " + color.value, 20, 70);
+doc.text("Cantidad: " + cantidad, 20, 80);
+
+doc.text("Precio estimado:", 20, 100);
+
+doc.setFontSize(18);
+doc.text("NeoFigure CR", 20, 20);
+doc.text("$" + total.toFixed(2), 20, 110);
+const pdfUrl = doc.output("bloburl");
+
+const newWindow = window.open(pdfUrl, "_blank");
+
+if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+    doc.save("cotizacion.pdf");
+}
 });
+
     clearImageBtn.addEventListener("click", function() {
 
     fileInput.value = "";

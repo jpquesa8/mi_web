@@ -481,6 +481,7 @@ footer{
     © 2026 NeoFigure CR — Figuras coleccionables y personalizadas en Costa Rica.
 
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
     const baseMaterial = {
     pla: 0.12,
@@ -527,7 +528,7 @@ if (!archivo) {
     });
     const btnCotizar = document.getElementById("btnCotizar");
 btnCotizar.addEventListener("click", function () {
-const { jsPDF } = window.jspdf;
+const jsPDF = window.jspdf.jsPDF;
 const doc = new jsPDF();
     doc.setFontSize(22);
 doc.text("NeoFigure CR", 20, 20);
